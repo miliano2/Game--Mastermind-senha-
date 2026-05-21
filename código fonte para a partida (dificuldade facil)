@@ -3,59 +3,81 @@
 using namespace std;
 int main()
 {
-  int num1, num2, num3, tentativas = 1, res1, res2, res3;;
-  bool resposta = false;
-  srand(time(0));
-        
-    do{
-        num1  = rand()%6 + 1;
-        num2  = rand()%6 + 1;
-        num3  = rand()%6 + 1;
-    }while (num1 == num2 or num1 == num3 or num2 == num3);
-        cout << num1 << num2 << num3;
-while (tentativas < 8 or resposta != true){
-       
-             cout <<"============TENTATTIVA "<< tentativas << " ===================" << endl;;
-             
-             cin >> res1 >> res2 >> res3;
-             if (res1  ==  num1){
-                cout <<" Primeiro número certo, local certo" << endl;
-             } else if (res1 == num2 or  res1 == num3)
-             {
-               cout <<" Primeiro número certo, porém local errado!" << endl;
-             } else {
-                cout << " numero errado" << endl;
-             }
-             
-             if (res2  ==  num2){
-                cout <<" Segundo número certo, local certo" << endl;
-             } else if (res2 == num1 or  res2 == num3){
-               cout <<" Segundo número certo, porém local errado!" << endl;
-             } else {
-                cout << "numero errado" << endl;
-             }
-            
-             if (res3  ==  num3){
-                cout <<" Terceiro número certo, local certo" << endl;
-             } else if (res3 == num2 or  res3 == num1)
-             {
-               cout <<" Terceiro número certo, porém local errado!" << endl;
-             } else { 
-                cout << "numero errado" << endl;
-             }
-             tentativas++;
-             if (res1 == num1 && res2 == num2 && res3 == num3){
-                cout << "Parabéns você conseguiu!!";
-                resposta =  true;
-                break;
-             }
-             
-             
-}
-             if (tentativas == 8 and resposta ==  false){
-                cout << "Você não conseguiu adivinhar. Que pena!";
-             }
-    return 0;
-    
-    
+	int num1, num2, num3, tentativas = 1, res1, res2, res3;;
+	bool resposta = false;
+	srand(time(0));
+
+	do {
+		num1  = rand()%6 + 1;
+		num2  = rand()%6 + 1;
+		num3  = rand()%6 + 1;
+	} while (num1 == num2 or num1 == num3 or num2 == num3);
+	cout << num1 << num2 << num3;
+	while (tentativas < 8 or resposta != true) {
+
+		cout <<"============TENTATTIVA "<< tentativas << " ===================" << endl;
+		cout << "Digite 3 numeros de 1 a 6: " << endl;
+		cout << "Primeiro numero:  " << endl;
+		cin  >> res1;
+		cout << "Segundo numero:  " << endl;
+		cin  >> res2;
+		cout << "Terceiro numero:  " << endl;
+		cin  >> res3;
+
+		while (
+		    res1 < 1 || res1 > 6 ||
+		    res2 < 1 || res2 > 6 ||
+		    res3 < 1 || res3 > 6
+		) {
+
+			cout << "Numeros invalidos!" << endl;
+			cout << "Digite 3 numeros de 1 a 6: " << endl;
+			cout << "Primeiro numero:  " << endl;
+			cin  >> res1;
+			cout << "Segundo numero:  " << endl;
+			cin  >> res2;
+			cout << "Terceiro numero:  " << endl;
+			cin  >> res3;
+			cin >> res1 >> res2 >> res3;
+		}
+		if (res1  ==  num1) {
+			cout <<" Primeiro número certo, local certo" << endl;
+		} else if (res1 == num2 or  res1 == num3)
+		{
+			cout <<" Primeiro número certo, porém local errado!" << endl;
+		} else {
+			cout << " numero errado" << endl;
+		}
+
+		if (res2  ==  num2) {
+			cout <<" Segundo número certo, local certo" << endl;
+		} else if (res2 == num1 or  res2 == num3) {
+			cout <<" Segundo número certo, porém local errado!" << endl;
+		} else {
+			cout << "numero errado" << endl;
+		}
+
+		if (res3  ==  num3) {
+			cout <<" Terceiro número certo, local certo" << endl;
+		} else if (res3 == num2 or  res3 == num1)
+		{
+			cout <<" Terceiro número certo, porém local errado!" << endl;
+		} else {
+			cout << "numero errado" << endl;
+		}
+		tentativas++;
+		if (res1 == num1 && res2 == num2 && res3 == num3) {
+			cout << "Parabéns você conseguiu!!";
+			resposta =  true;
+			break;
+		}
+
+
+	}
+	if (tentativas == 8 and resposta ==  false) {
+		cout << "Você não conseguiu adivinhar. Que pena!";
+	}
+	return 0;
+
+
 }
