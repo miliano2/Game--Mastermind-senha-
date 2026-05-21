@@ -35,7 +35,144 @@ int main() {
 		switch (escolha)
 		{
 		case 1:  // Tem Que começar a arrumar a parte do jogo
-			cout << "aaa";
+			system("cls");
+			if (dificuldade == 1) {
+				int num1, num2, num3, tentativas = 1, res1, res2, res3;
+				int certos = 0;
+				int errados = 0;
+				bool resposta = false;
+				srand(time(0));
+
+				do {
+					num1  = rand()%6 + 1;
+					num2  = rand()%6 + 1;
+					num3  = rand()%6 + 1;
+				} while (num1 == num2 or num1 == num3 or num2 == num3);
+				//cout << num1 << num2 << num3;
+				while (tentativas <= 8 && resposta == false) {
+
+					cout <<"============TENTATTIVA "<< tentativas << " ===================" << endl;
+					cout << "Digite 3 numeros de 1 a 6: " << endl;
+					cout << "Primeiro numero:  " << endl;
+					cin  >> res1;
+					if(cin.fail()) {
+
+						cin.clear();
+						cin.ignore(1000, '\n');
+
+						cout << "Digite apenas numeros!\n";
+
+						continue;
+					}
+					cout << "Segundo numero:  " << endl;
+					cin  >> res2;
+					if(cin.fail()) {
+
+						cin.clear();
+						cin.ignore(1000, '\n');
+
+						cout << "Digite apenas numeros!\n";
+
+						continue;
+					}
+					cout << "Terceiro numero:  " << endl;
+					cin  >> res3;
+					if(cin.fail()) {
+
+						cin.clear();
+						cin.ignore(1000, '\n');
+
+						cout << "Digite apenas numeros!\n";
+
+						continue;
+					}
+
+					while (
+					    res1 < 1 || res1 > 6 ||
+					    res2 < 1 || res2 > 6 ||
+					    res3 < 1 || res3 > 6
+					) {
+
+						cout << "Numeros invalidos!" << endl;
+						cout << "Digite 3 numeros de 1 a 6: " << endl;
+						cout << "Primeiro numero:  " << endl;
+						cin  >> res1;
+						if(cin.fail()) {
+
+							cin.clear();
+							cin.ignore(1000, '\n');
+
+							cout << "Digite apenas numeros!\n";
+
+							continue;
+						}
+						cout << "Segundo numero:  " << endl;
+						cin  >> res2;
+						if(cin.fail()) {
+
+							cin.clear();
+							cin.ignore(1000, '\n');
+
+							cout << "Digite apenas numeros!\n";
+
+							continue;
+						}
+						cout << "Terceiro numero:  " << endl;
+						cin  >> res3;
+						if(cin.fail()) {
+
+							cin.clear();
+							cin.ignore(1000, '\n');
+
+							cout << "Digite apenas numeros!\n";
+
+							continue;
+						}
+						cout << "\n=========== RESULTADO ===========" << endl;
+					}
+					
+					if (res1 == num1) {
+						cout << "[✓] Primeiro numero correto na posicao correta" << endl;
+					} else if (res1 == num2 || res1 == num3) {
+						cout << "[~] Primeiro numero correto mas esta na posicao errada" << endl;
+					} else {
+						cout << "[X] Primeiro numero incorreto" << endl;
+					}
+					
+					if (res2 == num2) {
+						cout << "[✓] Segundo numero correto na posicao correta" << endl;
+					} else if (res2 == num1 || res2 == num3) {
+						cout << "[~] Segundo numero existe mas esta na posicao errada" << endl;
+					} else {
+						cout << "[X] Segundo numero incorreto" << endl;
+					}
+					
+					if (res3 == num3) {
+						cout << "[✓] Terceiro numero correto na posicao correta" << endl;
+					} else if (res3 == num1 || res3 == num2) {
+						cout << "[~] Terceiro numero existe mas esta na posicao errada" << endl;
+					} else {
+						cout << "[X] Terceiro numero incorreto" << endl;
+					}
+					
+					tentativas++;
+					
+					if (res1 == num1 && res2 == num2 && res3 == num3) {
+						cout << "Parabéns você conseguiu!!" << endl;
+						resposta =  true;
+						system("pause");
+						break;
+					}
+
+
+				}
+				if (tentativas == 8 and resposta ==  false) {
+					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
+					system("pause");
+					break;
+				}
+			}
+
 			break;
 
 		case 2:// O codigo também ta motrando qual a dificuldade atual do jogador
