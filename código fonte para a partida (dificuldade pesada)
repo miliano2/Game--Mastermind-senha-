@@ -79,9 +79,21 @@
 					    res3 < 1 || res3 > 6 ||
                         res4 < 1 || res4 > 6 ||
                         res5 < 1 || res5 > 6 ||
+                        res1 == res2 || res1 == res3 ||
+                        res1 == res4 || res1 == res5 ||
+                        res2 == res3 || res2 == res4 ||
+                        res2 == res5 || res3 == res4 ||
+                        res3 == res5 || res4 == res5
 					) {
 
 						cout << "Numeros invalidos!" << endl;
+                        if (res1 == res2 || res1 == res3 ||
+                        res1 == res4 || res1 == res5 ||
+                        res2 == res3 || res2 == res4 ||
+                        res2 == res5 || res3 == res4 ||
+                        res3 == res5 || res4 == res5){
+                            cout<<"Os números não podem se repetir!"<<endl;
+                        }
 						cout << "Digite 5 numeros de 1 a 6: " << endl;
 						cout << "Primeiro numero:  " << endl;
 						cin  >> res1;
