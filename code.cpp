@@ -50,7 +50,8 @@ int main() {
 				} while (num1 == num2 or num1 == num3 or num2 == num3);
 				//cout << num1 << num2 << num3;
 				while (tentativas <= 8 && resposta == false) {
-					cout <<"============TENTATTIVA "<< tentativas << " ===================" << endl;
+					cout <<"============ DIFICULDADE FÁCIL ===================" << endl;
+                    cout << "Tentativa " << tentativas << " de 8" << endl;
                     cout << "Seu último chute foi: " << res1 << res2 << res3 << endl;
 					cout << "Digite 3 numeros de 1 a 6: " << endl;
 					cout << "Primeiro numero:  " << endl;
