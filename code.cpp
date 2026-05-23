@@ -10,7 +10,7 @@ int main() {
 	setlocale(LC_ALL, "Portuguese");
 	setlocale(LC_TIME, "pt_BR.UTF-8");
 
-	int escolha = 0,  dificuldade  = 1;
+	int escolha = 0,  dificuldade  = 2;
 
 	// Letras ainda tão quebrando o codigo todo
 	while (escolha != 4) { // serve pra que todas as escolhas voltem pro menu
@@ -91,10 +91,19 @@ int main() {
 					while (
 					    res1 < 1 || res1 > 6 ||
 					    res2 < 1 || res2 > 6 ||
-					    res3 < 1 || res3 > 6
+					    res3 < 1 || res3 > 6 ||
+						res1 == res2 || 
+						res1 == res3 ||
+						res2 == res3
 					) {
 
 						cout << "Numeros invalidos!" << endl;
+						if (
+						res1 == res2 || 
+						res1 == res3 ||
+						res2 == res3){
+							cout<<"OS números não podem se repetir!"<< endl;
+						}
 						cout << "Digite 3 numeros de 1 a 6: " << endl;
 						cout << "Primeiro numero:  " << endl;
 						cin  >> res1;
