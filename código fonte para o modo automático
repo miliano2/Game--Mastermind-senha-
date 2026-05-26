@@ -1,0 +1,129 @@
+    while (escolha != 5) { // serve pra que todas as escolhas voltem pro menu
+
+		system("cls");// pra deixar o jogo mais clean
+		system("color 07");
+		cout << "===================SENHA==================="  << endl;
+		cout << "escolha uma opção :" << endl;
+		cout << "1 - Jogar" << endl;
+		cout << "2 - Dificuldade" << endl;
+		cout << "3 - Sobre" << endl;
+        cout << "4 - Automático" << endl;
+		cout << "5 - FIM" << endl;
+		cin >> escolha;
+
+        //O menu muda pra 5 opções
+
+        case 4: 
+            if (dificuldade == 1){
+                int num1, num2, num3, tentativas = 1, res1 = 0, res2 = 0, res3= 0;
+				int certos = 0;
+				int errados = 0;
+				bool resposta = false;
+				srand(time(0));
+
+				do {
+					num1  = rand()%6 + 1;
+					num2  = rand()%6 + 1;
+					num3  = rand()%6 + 1;
+				} while (num1 == num2 or num1 == num3 or num2 == num3);
+				//cout << num1 << num2 << num3;
+				while (tentativas <= 8 && resposta == false) {
+					cout <<"============ DIFICULDADE FÁCIL ===================" << endl;
+					cout << "Tentativa " << tentativas << " de 8" << endl;
+					cout << "O último chute gerado foi: " << res1 << res2 << res3 << endl;
+					cout << "O computador vai digitar 3 números de 1 a 6: " << endl;
+					cout << tentativas << " chute:  " << endl;
+                    do {
+                        if (res1 != num1){
+                            res1 = rand()%6 + 1;
+                        }
+		    			if (res2 != num2){
+                            res2 = rand()%6 + 1;
+                        }
+		    			if (res3 != num3){
+                            res3 = rand()%6 + 1;
+                        }
+                    } while (res1 == res2 || res1 == res3 || res2 == res3 )
+                    cout << res1 << res2 << res3;
+					
+                    cout << "\n=========== RESULTADO ===========" << endl;
+
+					if (res1 == num1) {
+						cout << "\033[32m";
+						cout << "[✓] Primeiro numero correto na posicao correta" << endl;
+						cout << "\033[0m";
+					} else if (res1 == num2 || res1 == num3) {
+						cout << "\033[33m";
+						cout << "[~] Primeiro numero correto mas esta na posicao errada" << endl;
+						cout << "\033[0m";
+					} else {
+						cout << "\033[31m";
+						cout << "[X] Primeiro numero incorreto" << endl;
+						cout << "\033[0m";
+					}
+
+					if (res2 == num2) {
+						cout << "\033[32m";
+						cout << "[✓] Segundo numero correto na posicao correta" << endl;
+						cout << "\033[0m";
+					} else if (res2 == num1 || res2 == num3) {
+						cout << "\033[33m";
+						cout << "[~] Segundo numero existe mas esta na posicao errada" << endl;
+						cout << "\033[0m";
+					} else {
+						cout << "\033[31m";
+						cout << "[X] Segundo numero incorreto" << endl;
+						cout << "\033[0m";
+					}
+
+					if (res3 == num3) {
+						cout << "\033[32m";
+						cout << "[✓] Terceiro numero correto na posicao correta" << endl;
+						cout << "\033[0m";
+					} else if (res3 == num1 || res3 == num2) {
+						cout << "\033[33m";
+						cout << "[~] Terceiro numero existe mas esta na posicao errada" << endl;
+						cout << "\033[0m";
+					} else {
+						cout << "\033[31m";
+						cout << "[X] Terceiro numero incorreto" << endl;
+						cout << "\033[0m";
+					}
+
+					tentativas++;
+
+					if (res1 == num1 && res2 == num2 && res3 == num3) {
+						system("color 0A");
+						cout << "Parabéns você conseguiu!!" << endl;
+						resposta =  true;
+						system("pause");
+						break;
+					}
+
+
+				}
+				if (tentativas == 8 and resposta ==  false) {
+					system("color 0C");
+					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
+					system("pause");
+					break;
+				}
+
+                if (res1 == num2 || res1 == num3) {
+					res2 = res1;
+					res3 = res1;
+				}
+				if (res2 == num1 || res2 == num3) {
+					res1 = res2;
+					res3 = res2;
+				}
+				if (res3 == num1 || res3 == num2) {
+				    res1 = res3;
+				    res2 = res3;
+				    
+				}
+
+
+
+            }
+    
