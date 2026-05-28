@@ -17,7 +17,9 @@ int main() {
 
 		system("cls");// pra deixar o jogo mais clean
 		system("color 07");
-		cout << "===================SENHA==================="  << endl;
+		cout << "======================================" << endl;
+		cout << "         MASTERMIND SENHA            " << endl;
+		cout << "======================================" << endl;
 		cout << "escolha uma opção :" << endl;
 		cout << "1 - Jogar" << endl;
 		cout << "2 - Dificuldade" << endl;
@@ -25,7 +27,7 @@ int main() {
 		cout << "4 - Automático" << endl;
 		cout << "5 - FIM" << endl;
 		cin >> escolha;
-
+		
 		if(cin.fail()) { // resetar a variavel se o rese escrever algo
 			cin.clear();
 			cin.ignore(1000, '\n');
@@ -199,6 +201,7 @@ int main() {
 				if (tentativas == 8 and resposta ==  false) {
 					system("color 0C");
 					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
+					cout << "A senha era: " << num1 << num2 << num3 << endl;
 					system("pause");
 					break;
 				}
@@ -352,8 +355,8 @@ int main() {
 
 					if (resposta == false) {
 
-						cout << "\nVoce perdeu!" << endl;
-
+						cout << "Você não conseguiu adivinhar. Que pena!" << endl;
+						cout << "A senha era: " << num1 << num2 << num3 << num4 << endl;
 						system("pause");
 					}
 				}
@@ -598,6 +601,7 @@ int main() {
 				if (tentativas == 0 and resposta ==  false) {
                     system("color 0C");
 					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
+					cout << "A senha era: " << num1 << num2 << num3 << num4 << num5 << endl;
 					system("pause");
 					break;
 				}
