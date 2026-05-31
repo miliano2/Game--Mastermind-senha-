@@ -14,7 +14,7 @@ int main() {
 	// Letras ainda tão quebrando o codigo todo
 	while (escolha != 6) { // serve pra que todas as escolhas voltem pro menu
 
-		system("cls");// pra deixar o jogo mais clean
+		system("clear");// pra deixar o jogo mais clean
 		system("color 07");
 		cout << "======================================" << endl;
 		cout << "         MASTERMIND SENHA            " << endl;
@@ -38,7 +38,7 @@ int main() {
 		switch (escolha)
 		{
 		case 1: { // Tem Que começar a arrumar a parte do jogo
-			system("cls");
+			system("clear");
 			if (dificuldade == 1) {
 				int num1, num2, num3, tentativas = 1, res1 = 0, res2 = 0, res3= 0;
 				int certos = 0;
@@ -192,7 +192,7 @@ int main() {
 						system("color 0A");
 						cout << "Parabéns você conseguiu!!" << endl;
 						resposta =  true;
-						system("pause");
+						;
 						break;
 					}
 
@@ -202,7 +202,7 @@ int main() {
 					system("color 0C");
 					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
 					cout << "A senha era: " << num1 << num2 << num3 << endl;
-					system("pause");
+					;
 					break;
 				}
 			}
@@ -232,7 +232,6 @@ int main() {
 
 				while (tentativas <= 10 && resposta == false) {
 
-					system("cls");
 
 					cout << "========= DIFICULDADE MEDIA =========" << endl;
 					cout << "Tentativa " << tentativas << " de 10" << endl;
@@ -248,7 +247,7 @@ int main() {
 
 						cout << "Digite apenas numeros!" << endl;
 
-						system("pause");
+						;
 						continue;
 					}
 
@@ -261,7 +260,7 @@ int main() {
 
 						cout << "Digite apenas numeros entre 1 e 8!" << endl;
 
-						system("pause");
+						;
 						continue;
 					}
 					if (res1 == num1) {
@@ -343,21 +342,21 @@ int main() {
 
 						resposta = true;
 
-						system("pause");
+						;
 
 						break;
 					}
 
 					tentativas++;
 
-					system("pause");
+					;
 				}
 
 				if (resposta == false) {
 
 					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
 					cout << "A senha era: " << num1 << num2 << num3 << num4 << endl;
-					system("pause");
+					;
 				}
 			}
 
@@ -592,7 +591,7 @@ int main() {
 						system("color 0A");
 						cout << "Parabéns você conseguiu!!" << endl;
 						resposta =  true;
-						system("pause");
+						;
 						break;
 					}
 
@@ -602,7 +601,7 @@ int main() {
 					system("color 0C");
 					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
 					cout << "A senha era: " << num1 << num2 << num3 << num4 << num5 << endl;
-					system("pause");
+					;
 					break;
 				}
 			}
@@ -610,7 +609,7 @@ int main() {
 		break;
 
 		case 2: {
-			system("cls");
+			system("clear");
 
 			int num1, num2, num3;
 			int num4, num5, num6;
@@ -658,7 +657,7 @@ int main() {
 			    !(chave1Resolvida && chave2Resolvida)
 			)
 			{
-				system("cls");
+				system("clear");
 				cout << "=========== MODO DUETO ===========" << endl;
 				cout << " Sua Ultima tentativa foi :"<< res1  <<  res2  << res3 << endl;
 				cout << "Tentativa " << tentativas << " de 15" << endl;
@@ -686,7 +685,7 @@ int main() {
 
 					cout << "Digite apenas numeros!" << endl;
 
-					system("pause");
+					;
 					continue;
 				}
 
@@ -713,7 +712,7 @@ int main() {
 
 						cout << "Digite apenas numeros!" << endl;
 
-						system("pause");
+						;
 						continue;
 					}
 				}
@@ -811,14 +810,14 @@ int main() {
 					cout << "PARABENS!" << endl;
 					cout << "VOCE DESBLOQUEOU AS DUAS CHAVES!" << endl;
 
-					system("pause");
+					
 
 					break;
 				}
 
 				tentativas++;
 
-				system("pause");
+				
 			}
 
 			if(
@@ -830,14 +829,14 @@ int main() {
 				cout << endl;
 				cout << "VOCE PERDEU!" << endl;
 
-				system("pause");
+				
 			}
 
 			break;
 		}
 
 		case 3:// O codigo também ta motrando qual a dificuldade atual do jogador
-			system("cls");
+			system("clear");
 			cout << "=============DIFICULDADE==========="<<  endl;
 			cout << "Por favor escolha a dificuldade que quer desafiar:  " << endl;
 			if (dificuldade == 1) {
@@ -858,7 +857,7 @@ int main() {
 
 				cout << "Digite apenas numeros!\n";
 
-				system("pause");
+				
 				break;
 			}
 
@@ -902,7 +901,7 @@ int main() {
 
 					while (tentativas <= 10 && resposta == false) {
 
-						system("cls");
+						system("clear");
 
 						cout << "========= DIFICULDADE MEDIA =========" << endl;
 						cout << "Tentativa " << tentativas << " de 10" << endl;
@@ -918,7 +917,7 @@ int main() {
 
 							cout << "Digite apenas numeros!" << endl;
 
-							system("pause");
+							
 							continue;
 						}
 
@@ -931,7 +930,7 @@ int main() {
 
 							cout << "Digite apenas numeros entre 1 e 8!" << endl;
 
-							system("pause");
+							
 							continue;
 						}
 						if (res1 == num1) {
@@ -1013,21 +1012,21 @@ int main() {
 
 							resposta = true;
 
-							system("pause");
+							
 
 							break;
 						}
 
 						tentativas++;
 
-						system("pause");
+						
 					}
 
 					if (resposta == false) {
 
 						cout << "\nVoce perdeu!" << endl;
 
-						system("pause");
+						
 					}
 				}
 			}
@@ -1035,7 +1034,7 @@ int main() {
 			break;
 
 		case 4: // Coloquem o nome completo de voces aqui
-			system("cls");
+			system("clear");
 			cout << "==============SOBRE================" << endl;
 			cout << "Equipe de Desenvolvimento==========" << endl;
 			cout << "- João Gabriel M. T. dos Santos" << endl;
@@ -1050,7 +1049,7 @@ int main() {
 			cout << "===Professor e Disciplina=========="<< endl;
 			cout << "Professor: Alex Rese" << endl;
 			cout << "Disciplina : Algoritmo e Programação" << endl;
-			system("pause");
+			
 			break;
 
 		case 5: {
@@ -1136,7 +1135,7 @@ int main() {
 						system("color 0A");
 						cout << "Parabéns você conseguiu!!" << endl;
 						resposta =  true;
-						system("pause");
+						
 						break;
 					}
 
@@ -1145,7 +1144,7 @@ int main() {
 				if (tentativas == 8 and resposta ==  false) {
 					system("color 0C");
 					cout << "Você não conseguiu adivinhar. Que pena!" << endl;
-					system("pause");
+					
 					break;
 				}
 
@@ -1266,7 +1265,7 @@ int main() {
 						system("color 0A");
 						cout << "Parabéns computador!!" << endl;
 						resposta =  true;
-						system("pause");
+						
 						break;
 					}
 
@@ -1275,7 +1274,7 @@ int main() {
 				if (tentativas == 10 and resposta ==  false) {
 					system("color 0C");
 					cout << "O computador não conseguiu adivinhar. Que pena!" << endl;
-					system("pause");
+					
 					break;
 				}
 
@@ -1426,11 +1425,11 @@ int main() {
 				) {
 					cout << "\nPARABENS COMPUTADOR!!" << endl;
 					resposta = true;
-					system("pause");
+					
 					break;
 				}
 				tentativas++;
-				system("pause");
+				
 			}
 			if (resposta == false)
 			{
@@ -1440,7 +1439,7 @@ int main() {
 				cout << "A senha era: "
 					<< num1 << num2 << num3 << num4 << num5 << endl;
 
-				system("pause");
+				
 			}
 
 			break;
