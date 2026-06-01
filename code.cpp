@@ -12,8 +12,6 @@ int main() {
 
 	while (escolha != 6) {
 
-		system("cls");// pra deixar o jogo mais clean
-		system("color 07");
 		cout << "======================================" << endl;
 		cout << "         MASTERMIND SENHA            " << endl;
 		cout << "======================================" << endl;
@@ -35,8 +33,8 @@ int main() {
 
 		switch (escolha)
 		{
-		case 1: { // Tem Que começar a arrumar a parte do jogo
-			system("cls");
+		case 1: {
+			system("clear"); // Limpa ao entrar no jogo
 			if (dificuldade == 1) {
 				int num1, num2, num3, tentativas = 1, res1 = 0, res2 = 0, res3 = 0;
 				bool resposta = false;
@@ -137,19 +135,15 @@ int main() {
 
 					tentativas++;
 
-					if (res1 == num1 && res2 == num2 && res3 == num3) {
-						system("color 0A");
-						cout << "Parabéns você conseguiu!!" << endl;
-						resposta =  true;
-						system("pause");
+					if (res1==num1 && res2==num2 && res3==num3) {
+						cout << "\nParabens voce conseguiu!!" << endl;
+						resposta = true;
 						break;
 					}
 				}
 				if (tentativas > 8 && resposta == false) {
 					cout << "\nVoce nao conseguiu adivinhar. Que pena!" << endl;
 					cout << "A senha era: " << num1 << num2 << num3 << endl;
-					system("pause");
-					break;
 				}
 			}
 			else if (dificuldade == 2) {
@@ -166,9 +160,6 @@ int main() {
 				} while (num1==num2||num1==num3||num1==num4||num2==num3||num2==num4||num3==num4);
 
 				while (tentativas <= 10 && resposta == false) {
-
-					system("cls");
-
 					cout << "========= DIFICULDADE MEDIA =========" << endl;
 					cout << "Tentativa " << tentativas << " de 10" << endl;
 					cout << "Seu ultimo chute foi: " << res1 << " " << res2 << " " << res3 << " " << res4 << endl;
@@ -177,17 +168,12 @@ int main() {
 					cin >> res1 >> res2 >> res3 >> res4;
 					if (cin.fail()) {
 						cin.clear();
-						cin.ignore(1000, '\n');
-
-						cout << "Digite apenas numeros!" << endl;
-
-						system("pause");
+						cin.ignore(1000,'\n');
+						cout<<"Digite apenas numeros!"<<endl;
 						continue;
 					}
 					if (res1<1||res1>8||res2<1||res2>8||res3<1||res3>8||res4<1||res4>8) {
 						cout << "Digite apenas numeros entre 1 e 8!" << endl;
-
-						system("pause");
 						continue;
 					}
 
@@ -235,19 +221,13 @@ int main() {
 					if (res1==num1&&res2==num2&&res3==num3&&res4==num4) {
 						cout << "\nParabens! Voce venceu!" << endl;
 						resposta = true;
-
-						system("pause");
-
 						break;
 					}
 					tentativas++;
-
-					system("pause");
 				}
 				if (resposta == false) {
 					cout << "\nVoce nao conseguiu adivinhar. Que pena!" << endl;
 					cout << "A senha era: " << num1 << num2 << num3 << num4 << endl;
-					system("pause");
 				}
 			}
 			else if (dificuldade == 3) {
@@ -406,32 +386,24 @@ int main() {
 
 					tentativas--;
 
-					if (res1 == num1 && res2 == num2 && res3 == num3 && res4 == num4 && res5 == num5) {
-						system("color 0A");
-						cout << "Parabéns você conseguiu!!" << endl;
-						resposta =  true;
-						system("pause");
+					if (res1==num1&&res2==num2&&res3==num3&&res4==num4&&res5==num5) {
+						cout << "\nParabens voce conseguiu!!" << endl;
+						resposta = true;
 						break;
 					}
 				}
 				if (tentativas == 0 && resposta == false) {
 					cout << "\nVoce nao conseguiu adivinhar. Que pena!" << endl;
 					cout << "A senha era: " << num1 << num2 << num3 << num4 << num5 << endl;
-					system("pause");
-					break;
 				}
 			}
+			break;
 		}
-		break;
 
 		case 2: {
-			system("cls");
-
-			int num1, num2, num3;
-			int num4, num5, num6;
-
-			int res1 = 0, res2 = 0, res3 = 0;
-
+			system("clear"); // Limpa
+			int num1,num2,num3,num4,num5,num6;
+			int res1=0,res2=0,res3=0;
 			int tentativas = 1;
 			bool chave1Resolvida=false, chave2Resolvida=false;
 			srand(time(0));
@@ -442,26 +414,12 @@ int main() {
 				num3=rand()%6+1;
 			} while (num1==num2||num1==num3||num2==num3);
 			do {
+				num4=rand()%6+1;
+				num5=rand()%6+1;
+				num6=rand()%6+1;
+			} while (num4==num5||num4==num6||num5==num6);
 
-				num4 = rand()%6 + 1;
-				num5 = rand()%6 + 1;
-				num6 = rand()%6 + 1;
-
-			} while (
-			    num4 == num5 ||
-			    num4 == num6 ||
-			    num5 == num6
-			);
-
-			// cout << num1 << num2 << num3 << endl;
-			// cout << num4 << num5 << num6 << endl;
-
-			while (
-			    tentativas <= 15 &&
-			    !(chave1Resolvida && chave2Resolvida)
-			)
-			{
-				system("cls");
+			while (tentativas <= 10 && (chave1Resolvida == false && chave2Resolvida == false)) {
 				cout << "=========== MODO DUETO ===========" << endl;
 				cout << "Tentativa " << tentativas << " de 15" << endl;
 				cout << "Seu ultimo chute foi: " << res1 << " " << res2 << " " << res3 << endl;
@@ -473,11 +431,8 @@ int main() {
 				cin >> res1 >> res2 >> res3;
 				if (cin.fail()) {
 					cin.clear();
-					cin.ignore(1000, '\n');
-
-					cout << "Digite apenas numeros!" << endl;
-
-					system("pause");
+					cin.ignore(1000,'\n');
+					cout<<"Digite apenas numeros!"<<endl;
 					continue;
 				}
 				while (res1<1||res1>6||res2<1||res2>6||res3<1||res3>6||res1==res2||res1==res3||res2==res3) {
@@ -485,11 +440,7 @@ int main() {
 					cin >> res1 >> res2 >> res3;
 					if (cin.fail()) {
 						cin.clear();
-						cin.ignore(1000, '\n');
-
-						cout << "Digite apenas numeros!" << endl;
-
-						system("pause");
+						cin.ignore(1000,'\n');
 						continue;
 					}
 				}
@@ -528,236 +479,81 @@ int main() {
 						cout<<"\n\033[32mCHAVE 1 DESBLOQUEADA!\033[0m"<<endl;
 					}
 				}
-
-				if(
-				    chave1Resolvida &&
-				    chave2Resolvida
-				) {
-
-					system("color 0A");
-
-					cout << endl;
-					cout << "PARABENS!" << endl;
-					cout << "VOCE DESBLOQUEOU AS DUAS CHAVES!" << endl;
-
-					system("pause");
-
+				if (chave2Resolvida == false) {
+					cout << endl << "===== CHAVE 2 =====" << endl;
+					if (res1==num4) {
+						cout<<"\033[32m[✓] Primeiro correto\033[0m"<<endl;
+					}
+					else if (res1==num5||res1==num6) {
+						cout<<"\033[33m[~] Primeiro em outra posicao\033[0m"<<endl;
+					}
+					else {
+						cout<<"\033[31m[X] Primeiro incorreto\033[0m"<<endl;
+					}
+					if (res2==num5) {
+						cout<<"\033[32m[✓] Segundo correto\033[0m"<<endl;
+					}
+					else if (res2==num4||res2==num6) {
+						cout<<"\033[33m[~] Segundo em outra posicao\033[0m"<<endl;
+					}
+					else {
+						cout<<"\033[31m[X] Segundo incorreto\033[0m"<<endl;
+					}
+					if (res3==num6) {
+						cout<<"\033[32m[✓] Terceiro correto\033[0m"<<endl;
+					}
+					else if (res3==num4||res3==num5) {
+						cout<<"\033[33m[~] Terceiro em outra posicao\033[0m"<<endl;
+					}
+					else {
+						cout<<"\033[31m[X] Terceiro incorreto\033[0m"<<endl;
+					}
+					if (res1==num4&&res2==num5&&res3==num6) {
+						chave2Resolvida=true;
+						cout<<"\n\033[32mCHAVE 2 FOI DESBLOQUEADA!\033[0m"<<endl;
+					}
+				}
+				if (chave1Resolvida == true && chave2Resolvida == true) {
+					cout << "\nPARABENS! VOCE CONSEGUIU DESBLOQUEAR AS DUAS CHAVES!" << endl;
 					break;
 				}
-
 				tentativas++;
-
-				system("pause");
 			}
-
-			if(
-			    (chave1Resolvida != true && chave2Resolvida != true)
-			) {
-
-				system("color 0C");
-
-				cout << endl;
-				cout << "VOCE PERDEU!" << endl;
-
-				system("pause");
+			if (chave1Resolvida == false || !chave2Resolvida == false) {
+				cout << "\nVOCE PERDEU!" << endl;
 			}
-
 			break;
 		}
 
-		case 3:// O codigo também ta motrando qual a dificuldade atual do jogador
-			system("cls");
-			cout << "=============DIFICULDADE==========="<<  endl;
-			cout << "Por favor escolha a dificuldade que quer desafiar:  " << endl;
-			if (dificuldade == 1) {
-				cout << "  Dificuldade atual: fácil"<<  endl;
-			} else if (dificuldade == 2) {
-				cout << "  Dificuldade atual: médio"<<  endl;
+		case 3:
+			system("clear");
+			cout << "=============DIFICULDADE===========" << endl;
+			cout << "Por favor escolha a dificuldade:" << endl;
+			if (dificuldade==1) {
+				cout << "  Dificuldade atual: Facil" << endl;
+			} else if (dificuldade==2) {
+				cout << "  Dificuldade atual: Medio" << endl;
 			} else {
-				cout << "  Dificuldade atual: difícil"<<  endl;
+				cout << "  Dificuldade atual: Dificil" << endl;
 			}
-			cout << "1 - Fácil" << endl;
-			cout << "2 - médio" << endl;
-			cout << "3 - Difícil" << endl;
+			cout << "1 - Facil" << endl;
+			cout << "2 - Medio" << endl;
+			cout << "3 - Dificil" << endl;
 			cin >> dificuldade;
-			if(cin.fail()) {
-
+			if (cin.fail()) {
 				cin.clear();
-				cin.ignore(1000, '\n');
-
-				cout << "Digite apenas numeros!\n";
-
-				system("pause");
+				cin.ignore(1000,'\n');
+				cout<<"Digite apenas numeros!\n";
 				break;
 			}
-
-			while(dificuldade < 1 || dificuldade > 3) {
-
+			while (dificuldade<1||dificuldade>3) {
 				cout << "Escolha apenas entre 1 e 3: ";
 				cin >> dificuldade;
-
-				if(cin.fail()) {
-
+				if (cin.fail()) {
 					cin.clear();
-					cin.ignore(1000, '\n');
-
-					cout << "Digite apenas numeros!\n";
-
+					cin.ignore(1000,'\n');
+					cout<<"Digite apenas numeros!\n";
 					break;
-				}
-				else if (dificuldade == 2) {
-
-					int num1, num2, num3, num4;
-					int res1, res2, res3, res4;
-					int tentativas = 1;
-
-					bool resposta = false;
-
-					do {
-
-						num1 = rand()%8 + 1;
-						num2 = rand()%8 + 1;
-						num3 = rand()%8 + 1;
-						num4 = rand()%8 + 1;
-
-					} while (
-					    num1 == num2 ||
-					    num1 == num3 ||
-					    num1 == num4 ||
-					    num2 == num3 ||
-					    num2 == num4 ||
-					    num3 == num4
-					);
-
-					while (tentativas <= 10 && resposta == false) {
-
-						system("cls");
-
-						cout << "========= DIFICULDADE MEDIA =========" << endl;
-						cout << "Tentativa " << tentativas << " de 10" << endl;
-
-						cout << "Digite 4 numeros de 1 a 8" << endl;
-
-						cin >> res1 >> res2 >> res3 >> res4;
-
-						if(cin.fail()) {
-
-							cin.clear();
-							cin.ignore(1000, '\n');
-
-							cout << "Digite apenas numeros!" << endl;
-
-							system("pause");
-							continue;
-						}
-
-						if (
-						    res1 < 1 || res1 > 8 ||
-						    res2 < 1 || res2 > 8 ||
-						    res3 < 1 || res3 > 8 ||
-						    res4 < 1 || res4 > 8
-						) {
-
-							cout << "Digite apenas numeros entre 1 e 8!" << endl;
-
-							system("pause");
-							continue;
-						}
-						if (res1 == num1) {
-
-							cout << "\033[32m";
-							cout << "[✓] Primeiro numero correto" << endl;
-							cout << "\033[0m";
-						} else if (
-						    res1 == num2 ||
-						    res1 == num3 ||
-						    res1 == num4
-						) {
-							cout << "\033[33m";
-							cout << "[~] Primeiro numero em posicao errada" << endl;
-							cout << "\033[0m";
-						} else {
-							cout << "\033[31m";
-							cout << "[X] Primeiro numero incorreto" << endl;
-							cout << "\033[0m";
-						}
-						if (res2 == num2) {
-							cout << "\033[32m";
-							cout << "[✓] Segundo numero correto" << endl;
-							cout << "\033[0m";
-						} else if (
-						    res2 == num1 ||
-						    res2 == num3 ||
-						    res2 == num4
-						) {
-							cout << "\033[33m";
-							cout << "[~] Segundo numero em posicao errada" << endl;
-							cout << "\033[0m";
-						} else {
-							cout << "\033[31m";
-							cout << "[X] Segundo numero incorreto" << endl;
-							cout << "\033[0m";
-						}
-						if (res3 == num3) {
-							cout << "\033[32m";
-							cout << "[✓] Terceiro numero correto" << endl;
-							cout << "\033[0m";
-						} else if (
-						    res3 == num1 ||
-						    res3 == num2 ||
-						    res3 == num4
-						) {
-							cout << "\033[33m";
-							cout << "[~] Terceiro numero em posicao errada" << endl;
-							cout << "\033[0m";
-						} else {
-							cout << "\033[31m";
-							cout << "[X] Terceiro numero incorreto" << endl;
-							cout << "\033[0m";
-						}
-						if (res4 == num4) {
-							cout << "\033[32m";
-							cout << "[✓] Quarto numero correto" << endl;
-							cout << "\033[0m";
-						} else if (
-						    res4 == num1 ||
-						    res4 == num2 ||
-						    res4 == num3
-						) {
-							cout << "\033[33m";
-							cout << "[~] Quarto numero em posicao errada" << endl;
-							cout << "\033[0m";
-						} else {
-							cout << "\033[31m";
-							cout << "[X] Quarto numero incorreto" << endl;
-							cout << "\033[0m";
-						}
-						if (
-						    res1 == num1 &&
-						    res2 == num2 &&
-						    res3 == num3 &&
-						    res4 == num4
-						) {
-							cout << "\nParabens! Voce venceu!" << endl;
-
-							resposta = true;
-
-							system("pause");
-
-							break;
-						}
-
-						tentativas++;
-
-						system("pause");
-					}
-
-					if (resposta == false) {
-
-						cout << "\nVoce perdeu!" << endl;
-
-						system("pause");
-					}
 				}
 			}
 			if (dificuldade==1)      cout << "\nDificuldade definida para: Facil" << endl;
@@ -765,8 +561,8 @@ int main() {
 			else                     cout << "\nDificuldade definida para: Dificil" << endl;
 			break;
 
-		case 4: // Coloquem o nome completo de voces aqui
-			system("cls");
+		case 4:
+			system("clear");
 			cout << "==============SOBRE================" << endl;
 			cout << "Equipe de Desenvolvimento==========" << endl;
 			cout << "- Joao Gabriel Miliano Tomazelli dos Santos" << endl;
@@ -776,8 +572,7 @@ int main() {
 			cout << "Data atual: 1 de junho de 2026"<< endl;
 			cout << "===Professor e Disciplina==========" << endl;
 			cout << "Professor: Alex Rese" << endl;
-			cout << "Disciplina : Algoritmo e Programação" << endl;
-			system("pause");
+			cout << "Disciplina: Algoritmo e Programacao" << endl;
 			break;
 
 		case 5: {
@@ -838,34 +633,14 @@ int main() {
 						cout<<"\033[31m[X] Terceiro incorreto\033[0m"<<endl;
 					}
 					tentativas++;
-
-					if (res1 == num1 && res2 == num2 && res3 == num3) {
-						system("color 0A");
-						cout << "Parabéns computador!!" << endl;
-						resposta =  true;
-						system("pause");
+					if (res1==num1&&res2==num2&&res3==num3) {
+						cout<<"\nParabens computador!!"<<endl;
+						resposta=true;
 						break;
 					}
 				}
-				if (tentativas == 8 and resposta ==  false) {
-					system("color 0C");
-					cout << "O computador não conseguiu adivinhar. Que pena!" << endl;
-					system("pause");
-					break;
-				}
-
-				if (res1 == num2 || res1 == num3) {
-					res2 = res1;
-					res3 = res1;
-				}
-				if (res2 == num1 || res2 == num3) {
-					res1 = res2;
-					res3 = res2;
-				}
-				if (res3 == num1 || res3 == num2) {
-					res1 = res3;
-					res2 = res3;
-
+				if (tentativas > 8 && resposta == false) {
+					cout<<"\nO computador nao conseguiu adivinhar."<<endl;
 				}
 			}
 			else if (dificuldade == 2) {
@@ -939,43 +714,14 @@ int main() {
 						imp4=res4;
 					}
 					tentativas++;
-
-					if (res1 == num1 && res2 == num2 && res3 == num3 && res4 == num4) {
-						system("color 0A");
-						cout << "Parabéns computador!!" << endl;
-						resposta =  true;
-						system("pause");
+					if (res1==num1&&res2==num2&&res3==num3&&res4==num4) {
+						cout<<"\nParabens computador!!"<<endl;
+						resposta=true;
 						break;
 					}
 				}
-				if (tentativas == 10 and resposta ==  false) {
-					system("color 0C");
-					cout << "O computador não conseguiu adivinhar. Que pena!" << endl;
-					system("pause");
-					break;
-				}
-
-                if (res1 == num2 || res1 == num3 || res1 == num4) {
-					res2 = res1;
-					res3 = res1;
-					res4 = res1;
-				}
-				if (res2 == num1 || res2 == num3 || res2 == num4) {
-					res1 = res2;
-					res3 = res2;
-					res4 = res2;
-				}
-				if (res3 == num1 || res3 == num2 || res3 == num4) {
-				    res1 = res3;
-				    res2 = res3;
-					res4 = res3;
-				    
-				}
-				if (res4 == num1 || res4 == num2 || res4 == num3) {
-				    res3 = res4;
-				    res3 = res4;
-					res3 = res4;
-				    
+				if (resposta==false) {
+					cout<<"\nO computador nao conseguiu adivinhar."<<endl;
 				}
 			}
 			else if (dificuldade == 3) {
@@ -992,174 +738,64 @@ int main() {
 					num5=rand()%6+1;
 				} while (num1==num2||num1==num3||num1==num4||num1==num5||num2==num3||num2==num4||num2==num5||num3==num4||num3==num5||num4==num5);
 
-			// cout << num1 << num2 << num3 << num4 << num5;
-
-			while (tentativas <= 12 && resposta == false)
-			{
-				cout << "============ DIFICULDADE DIFICIL ===================" << endl;
-				cout << "Tentativa " << tentativas << " de 12" << endl;
-				cout << "Ultimo chute: "  << res1 << res2 << res3 << res4 << res5 << endl;
-				do {
-							if (res1 != num1) res1 = rand()%6 + 1;
-							if (res2 != num2) res2 = rand()%6 + 1;
-							if (res3 != num3) res3 = rand()%6 + 1;
-							if (res4 != num4) res4 = rand()%6 + 1;
-							if (res5 != num5) res5 = rand()%6 + 1;
-
-						} while (
-							res1 == res2 || res1 == res3 || res1 == res4 || res1 == res5 ||
-							res2 == res3 || res2 == res4 || res2 == res5 ||
-							res3 == res4 || res3 == res5 ||
-							res4 == res5
-						);
-
-				cout << "Chute gerado: "
-					<< res1 << res2 << res3 << res4 << res5 << endl;
-
-				cout << "\n=========== RESULTADO ===========" << endl;
-				if (res1 == num1) {
-					cout << "[✓] Primeiro correto" << endl;
-				} else if (
-					res1 == num2 ||
-					res1 == num3 ||
-					res1 == num4 ||
-					res1 == num5
-				) {
-					cout << "[~] Primeiro existe em outra posicao" << endl;
-				} else {
-					cout << "[X] Primeiro incorreto" << endl;
-					imp1 = res1;
-				}
-				if (res2 == num2) {
-					cout << "[✓] Segundo correto" << endl;
-				} else if (
-					res2 == num1 ||
-					res2 == num3 ||
-					res2 == num4 ||
-					res2 == num5
-				) {
-					cout << "[~] Segundo existe em outra posicao" << endl;
-				} else {
-					cout << "[X] Segundo incorreto" << endl;
-					imp2 = res2;
-				}
-				if (res3 == num3) {
-					cout << "[✓] Terceiro correto" << endl;
-				} else if (
-					res3 == num1 ||
-					res3 == num2 ||
-					res3 == num4 ||
-					res3 == num5
-				) {
-					cout << "[~] Terceiro existe em outra posicao" << endl;
-				} else {
-					cout << "[X] Terceiro incorreto" << endl;
-					imp3 = res3;
-				}
-				if (res4 == num4) {
-					cout << "[✓] Quarto correto" << endl;
-				} else if (
-					res4 == num1 ||
-					res4 == num2 ||
-					res4 == num3 ||
-					res4 == num5
-				) {
-					cout << "[~] Quarto existe em outra posicao" << endl;
-				} else {
-					cout << "[X] Quarto incorreto" << endl;
-					imp4 = res4;
-				}
-				if (res5 == num5) {
-					cout << "[✓] Quinto correto" << endl;
-				} else if (
-					res5 == num1 ||
-					res5 == num2 ||
-					res5 == num3 ||
-					res5 == num4
-				) {
-					cout << "[~] Quinto existe em outra posicao" << endl;
-				} else {
-					cout << "[X] Quinto incorreto" << endl;
-					imp5 = res5;
-				}
-				if (
-					res1 == num1 &&
-					res2 == num2 &&
-					res3 == num3 &&
-					res4 == num4 &&
-					res5 == num5
-				) {
-					cout << "\nPARABENS COMPUTADOR!!" << endl;
-					resposta = true;
-					system("pause");
-					break;
-				}
-				tentativas++;
-				system("pause");
-			}
-			if (resposta == false)
-			{
-				system("color 0C");
-
-				cout << "\nO computador nao conseguiu adivinhar." << endl;
-				cout << "A senha era: "
-					<< num1 << num2 << num3 << num4 << num5 << endl;
-
-				system("pause");
-			}
-
-			break;
-		}
-			else if (dificuldade == 2){
-                int num1, num2, num3, num4, tentativas = 1, res1 = 0, res2 = 0, res3 = 0, res4 = 0;
-				int imp1, imp2, imp3, imp4; //Vai impedir que o computador chute o mesmo número de antes se estiver errado
-				bool resposta = false;
-				srand(time(0));
-
-				do {
-					num1  = rand()%8 + 1;
-					num2  = rand()%8 + 1;
-					num3  = rand()%8 + 1;
-					num4  = rand()%8 + 1;
-				} while (num1 == num2 or num1 == num3 or num1 == num4 or num2 == num3 or num2 == num4 or num3 == num4);
-				//cout << num1 << num2 << num3;
-				while (tentativas <= 10 && resposta == false) {
-					cout <<"============ DIFICULDADE MÉDIA ===================" << endl;
-					cout << "Tentativa " << tentativas << " de 10" << endl;
-					cout << "O último chute gerado foi: " << res1 << res2 << res3 << res4 << endl;
-					cout << "O computador vai digitar 3 números de 1 a 8: " << endl;
-					cout << tentativas << " chute:  " << endl;
-                    do {
-                        if (res1 != num1 || res1 == imp1){
-                            res1 = rand()%8 + 1;
-                        }
-		    			if (res2 != num2 || res2 == imp2){
-                            res2 = rand()%8 + 1;
-                        }
-		    			if (res3 != num3 || res3 == imp3){
-                            res3 = rand()%8 + 1;
-                        }
-						if (res4 != num4 || res4 == imp4){
-							res4 = rand()%8 + 1;
+				while (tentativas <= 12 && resposta == false) {
+					cout<<"============ AUTO - DIFICULDADE DIFICIL ==================="<<endl;
+					cout<<"Tentativa "<<tentativas<<" de 12"<<endl;
+					cout<<"Ultimo chute: "<<res1<<" "<<res2<<" "<<res3<<" "<<res4<<" "<<res5<<endl;
+					cout<<"-----------------------------------------------------------"<<endl;
+					do {
+						if (res1!=num1) {
+							res1=rand()%6+1;
 						}
-                    } while (res1 == res2 || res1 == res3 || res1 == res4 || res2 == res3 || res2 == res4 || res3 == res4);
-                    cout << res1 << res2 << res3 << res4;
-					
-                    cout << "\n=========== RESULTADO ===========" << endl;
-
-					if (res1 == num1) {
-						cout << "\033[32m";
-						cout << "[✓] Primeiro numero correto na posicao correta" << endl;
-						cout << "\033[0m";
-					} else if (res1 == num2 || res1 == num3 || res1 == num4) {
-						cout << "\033[33m";
-						cout << "[~] Primeiro numero correto mas esta na posicao errada" << endl;
-						cout << "\033[0m";
-					} else {
-						cout << "\033[31m";
-						cout << "[X] Primeiro numero incorreto" << endl;
-						cout << "\033[0m";
-						imp1 = res1;
+						if (res2!=num2) {
+							res2=rand()%6+1;
+						}
+						if (res3!=num3) {
+							res3=rand()%6+1;
+						}
+						if (res4!=num4) {
+							res4=rand()%6+1;
+						}
+						if (res5!=num5) {
+							res5=rand()%6+1;
+						}
+					} while (res1==res2||res1==res3||res1==res4||res1==res5||res2==res3||res2==res4||res2==res5||res3==res4||res3==res5||res4==res5);
+					cout<<"Chute gerado: "<<res1<<" "<<res2<<" "<<res3<<" "<<res4<<" "<<res5<<endl;
+					cout<<"\n=========== RESULTADO ==========="<<endl;
+					if (res1==num1)                                          {
+						cout<<"\033[32m[✓] Primeiro correto\033[0m"<<endl;
+					}
+					else if (res1==num2||res1==num3||res1==num4||res1==num5)
+					{
+						cout<<"\033[33m[~] Primeiro em outra posicao\033[0m"<<endl;
+					}
+					else
+					{
+						cout<<"\033[31m[X] Primeiro incorreto\033[0m"<<endl;
+					}
+					if (res2==num2)
+					{
+						cout<<"\033[32m[✓] Segundo correto\033[0m"<<endl;
+					}
+					else if (res2==num1||res2==num3||res2==num4||res2==num5)
+					{
+						cout<<"\033[33m[~] Segundo em outra posicao\033[0m"<<endl;
+					}
+					else
+					{
+						cout<<"\033[31m[X] Segundo incorreto\033[0m"<<endl;
+					}
+					if (res3==num3)
+					{
+						cout<<"\033[32m[✓] Terceiro correto\033[0m"<<endl;
+					}
+					else if (res3==num1||res3==num2||res3==num4||res3==num5)
+					{
+						cout<<"\033[33m[~] Terceiro em outra posicao\033[0m"<<endl;
+					}
+					else
+					{
+						cout<<"\033[31m[X] Terceiro incorreto\033[0m"<<endl;
 					}
 					if (res4==num4)
 					{
