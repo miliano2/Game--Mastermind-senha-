@@ -427,8 +427,13 @@ int main() {
 				cout << (chave1Resolvida ? "\033[32m[CHAVE 1] RESOLVIDA\033[0m" : "\033[31m[CHAVE 1] PENDENTE\033[0m") << endl;
 				cout << (chave2Resolvida ? "\033[32m[CHAVE 2] RESOLVIDA\033[0m" : "\033[31m[CHAVE 2] PENDENTE\033[0m") << endl;
 				cout << "----------------------------------" << endl;
-				cout << "Digite 3 numeros de 1 a 6: ";
-				cin >> res1 >> res2 >> res3;
+				cout << "Digite 3 numeros de 1 a 6: "<< endl;
+				cout << "primeiro numero:" << endl;
+				cin >> res1;
+				cout << "Segundo numero:" << endl;
+				cin >> res2;
+				cout << "Terceiro numero:" << endl;
+				cin >> res3;
 				if (cin.fail()) {
 					cin.clear();
 					cin.ignore(1000,'\n');
@@ -656,7 +661,6 @@ int main() {
 				} while (num1==num2||num1==num3||num1==num4||num2==num3||num2==num4||num3==num4);
 
 				while (tentativas <= 10 && resposta == false) {
-					system("clear");
 					cout<<"============ AUTO - DIFICULDADE MEDIA ==================="<<endl;
 					cout<<"Tentativa "<<tentativas<<" de 10"<<endl;
 					cout<<"Ultimo chute: "<<res1<<" "<<res2<<" "<<res3<<" "<<res4<<endl;
