@@ -561,15 +561,18 @@ int main() {
 					break;
 				}
 			}
-			if (dificuldade==1)      cout << "\nDificuldade definida para: Facil" << endl;
-			else if (dificuldade==2) cout << "\nDificuldade definida para: Medio" << endl;
-			else                     cout << "\nDificuldade definida para: Dificil" << endl;
+			if (dificuldade==1){ 
+			    cout << "\nDificuldade definida para: Facil" << endl;
+			}else if (dificuldade==2){
+			     cout << "\nDificuldade definida para: Medio" << endl;
+			}else {
+			    cout << "\nDificuldade definida para: Dificil" << endl;}
 			break;
 
 		case 4:
 			system("clear");
 			cout << "==============SOBRE================" << endl;
-			cout << "Equipe de Desenvolvimento==========" << endl;
+			cout << "\033[34m=====Equipe de Desenvolvimento=====\033[0m" << endl;
 			cout << "- Joao Gabriel Miliano Tomazelli dos Santos" << endl;
 			cout << "- Thiago Schmitt dos Passos" << endl;
 			cout << "- Juliano de Souza Castro Vieira" << endl;
